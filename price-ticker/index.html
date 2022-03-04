@@ -1,1 +1,310 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+        Transaction
+        </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    </head>
+    <body>
+      
+      
+          <nav class="navbar navbar-expand-lg navbar-dark" style="background-color : red;">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">BlockChain Explorer</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/price-ticker">Price Tracker</a>
+                </li>
+                </li>
+                </ul>
+                <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+               </form>
+             </div>
+            </div>
+          </nav>
+      
+      <table style="width:100%">
+        
+        <tr>
+          <th>CryptoCurrency</th>
+          <th>Price (in USD)</th>
+        </tr>
+        
+        <tr>
+          <td>
+              Bitcoin Price (BTCUSDT)
+          </td>
+          <td id="stock-price-btc-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <td>
+          Ethereum Price (ETHUSDT)
+        </td>
+        <td id="stock-price-eth-usdt">
+        loading ...
+        </td>
+      
+        <tr>
+          <td>
+            Tether Price (USDTUSD)
+          </td>
+          <td>
+            1.000
+          </td>
+      
+        <tr>
+          <td>
+            BNB Price (BNBUSDT)
+          </td>
+          <td id="stock-price-bnb-usdt">
+            loading ...
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            USD Coin Price (USDCUSDT)
+          </td>
+          <td id="stock-price-usdc-usdt">
+            loading ...
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            XRP Price (XRPUSDT)
+          </td>
+          <td id="stock-price-xrp-usdt">
+            loading ...
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            Terra Luna Price (LUNAUSDT)
+          </td>
+          <td id="stock-price-luna-usdt">
+            loading ...
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            Solana Price (SOLUSDT)
+          </td>
+          <td id="stock-price-sol-usdt">
+            loading ...
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            Cardano Price (ADAUSDT)
+          </td>
+          <td id="stock-price-ada-usdt">
+            loading ...
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            Avalanche Price (AVAXUSDT)
+          </td>
+          <td id="stock-price-avax-usdt">
+            loading ...
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            Polkadot Price (DOTUSDT)
+          </td>
+          <td id="stock-price-dot-usdt">
+            loading ...
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            Binance USD Price (BUSDUSDT)
+          </td>
+          <td id="stock-price-busd-usdt">
+            loading ...
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            Dogecoin Price (DOGEUSDT)
+          </td>
+          <td id="stock-price-doge-usdt">
+            loading ...
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            Shib Inu Price (SHIBUSDT)
+          </td>
+          <td id="stock-price-shib-usdt">
+            loading ...
+          </td>
+        </td>
+        
+        <tr>
+          <td>
+            Terra USD Price (USTUSDT)
+          </td>
+          <td>
+            1.000
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            Polygon Price (MATICUSDT)
+          </td>
+          <td id="stock-price-matic-usdt">
+            loading ...
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            Litecoin Price (LTCUSDT)
+          </td>
+          <td id="stock-price-ltc-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            Near Price (NEARUSDT)
+          </td>
+          <td id="stock-price-near-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            Chainlink Price (LINKUSDT)
+          </td>
+          <td id="stock-price-link-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+         <tr>
+          <td>
+            Tron Price (TRXUSDT)
+          </td>
+          <td id="stock-price-trx-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            FTX Token Price (FTTUSDT)
+          </td>
+          <td id="stock-price-ftt-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+         <tr>
+          <td>
+            Bitcoin Cash Price (BCHUSDT)
+          </td>
+          <td id="stock-price-bch-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            Algorand Price (ALGOUSDT)
+          </td>
+          <td id="stock-price-algo-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            Stellar Price (XLMUSDT)
+          </td>
+          <td id="stock-price-xlm-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            Fantom Price (FTMUSDT)
+          </td>
+          <td id="stock-price-ftm-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            Uniswap Price (UNIUSDT)
+          </td>
+          <td id="stock-price-uni-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            Hedera Price (HBARUSDT)
+          </td>
+          <td id="stock-price-hbar-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            International Computer Price (ICPUSDT)
+          </td>
+          <td id="stock-price-icp-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            CHZ Price (CHZUSDT)
+          </td>
+          <td id="stock-price-chz-usdt">
+            loading ...
+          </td>
+        </tr>
+      
+      </table>
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="all-usdt.js">
+      </script>
+    </body>
+</html>
