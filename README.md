@@ -1,3 +1,2 @@
-# litecoin-transaction-tracker
-Tracks transactions and blocks of the Litecoin Blockchain
-#Coming Soon
+# crypto-live-price-ticker
+Gives current price of 18 cryptocurrencies.
