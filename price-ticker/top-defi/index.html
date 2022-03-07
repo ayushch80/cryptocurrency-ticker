@@ -1,1 +1,243 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+        Transaction
+        </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css" />
 
+    </head>
+    <body>
+      
+      
+          <nav class="navbar navbar-expand-lg navbar-dark" style="background-color : red;">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">BlockChain Explorer</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/price-ticker/index.html">Price Tracker</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/top-defi/index.html">Top 20 DeFi</a>
+                </li>
+                </li>
+                </ul>
+                <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-primary" type="submit" >Search</button>
+               </form>
+             </div>
+            </div>
+          </nav>
+    
+    
+      <table style="width:100%">
+        
+        <tr>
+          <th>CryptoCurrency</th>
+          <th>Price (in USD)</th>
+        </tr>
+        
+         <tr>
+          <td>
+              Terra Luna Price (LUNAUSDT)
+          </td>
+          <td id="stock-price-luna-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Avalanche Price (AVAXUSDT)
+          </td>
+          <td id="stock-price-avax-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Wrapped Bitcoin Price (WBTCUSDT)
+          </td>
+          <td>
+            coming soon ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              DAI Price (DAIUSDT)
+          </td>
+          <td>
+            coming soon ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Chainlink Price (LINKUSDT)
+          </td>
+          <td id="stock-price-link-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Uniswap Price (UNIUSDT)
+          </td>
+          <td id="stock-price-uni-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Fantom Price (FTMUSDT)
+          </td>
+          <td id="stock-price-ftm-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Theta Network Price (THETAUSDT)
+          </td>
+          <td id="stock-price-theta-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Tezos Price (XTZUSDT)
+          </td>
+          <td id="stock-price-xtz-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Maker Price (MKRUSDT)
+          </td>
+          <td id="stock-price-mkr-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              AAVE Price (AAVEUSDT)
+          </td>
+          <td id="stock-price-aave-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              THOR Chain Price (RUNEUSDT)
+          </td>
+          <td id="stock-price-rune-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Pancakeswap Price (CAKEUSDT)
+          </td>
+          <td id="stock-price-cake-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              The Graph Price (GRTUSDT)
+          </td>
+          <td id="stock-price-grt-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Curve DAO Token Price (CRVUSDT)
+          </td>
+          <td id="stock-price-crv-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Loopring Price (LRCUSDT)
+          </td>
+          <td id="stock-price-lrc-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Basic Attention Token Price (BATUSDT)
+          </td>
+          <td id="stock-price-bat-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Convex Finance Price (CVXUSDT)
+          </td>
+          <td id="stock-price-cvx-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Oasis Network Price (ROSEUSDT)
+          </td>
+          <td id="stock-price-rose-usdt">
+            loading ...
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+              Theta Fuel Price (TFUELUSDT)
+          </td>
+          <td>
+            coming soon ...
+          </td>
+        </tr>
+        
+      </table>
+      
+      <div class="loader-wrapper">
+      <span class="loader"><span class="loader-inner"></span></span>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="load.js" type="text/javascript"></script>
+        
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="top-defi-usdt.js">
+      </script>
+    </body>
+</html>
