@@ -18,7 +18,8 @@
     fetch('https://blockchain.info/latestblock', {
       method: 'GET',
       mode: 'no-cors'
-    }).then(response => response.json()).then(data => {
+    }).then(data => {
+      console.log(data)
         let unix_timestamp = data.time
         var date = new Date(unix_timestamp * 1000);
         var hours = date.getHours();
