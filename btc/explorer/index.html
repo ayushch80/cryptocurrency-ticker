@@ -15,17 +15,7 @@
 
     <script>
 
-    fetch('https://blockchain.info/latestblock', {
-    method: 'GET',
-    mode: 'no-cors', 
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, *same-origin, omit
-    headers: {
-      'Content-Type': 'application/json'
-      },
-    redirect: 'follow',
-    referrerPolicy: 'no-referrer',
-}).then(response => response.json()).then(data => {
+    fetch('https://blockchain.info/latestblock').then(response => response.json()).then(data => {
         let unix_timestamp = data.time
         var date = new Date(unix_timestamp * 1000);
         var hours = date.getHours();
