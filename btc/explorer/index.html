@@ -19,7 +19,7 @@
       method: 'GET',
       mode: 'no-cors'
     }).then(data => {
-      console.log(data)
+      console.log(data.body)
         let unix_timestamp = data.time
         var date = new Date(unix_timestamp * 1000);
         var hours = date.getHours();
