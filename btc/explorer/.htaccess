@@ -1,1 +1,2 @@
-Access-Control-Allow-Origin: https://blockchain.info
+Header set Access-Control-Allow-Origin "https://blockchain.info"
+
