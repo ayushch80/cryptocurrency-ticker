@@ -14,7 +14,7 @@
 
 
     <script>
-    $.getJSON('https://blockchain.info/latestblock', function(data) {
+    $.getJSON('https://blockchain.info/latestblock?cors=true', function(data) {
         let unix_timestamp = data.time
         var date = new Date(unix_timestamp * 1000);
         var hours = date.getHours();
