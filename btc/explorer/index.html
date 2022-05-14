@@ -17,9 +17,9 @@
     <script>
     $.getJSON('https://blockchain.info/latestblock', function(data) {
 
-        var text = `Date: ${data.height}<br>
-                    Time: ${data.time}<br>
-                    Unix time: ${data.hash}`
+        var text = `CURRENT BLOCK HEIGHT: ${data.height}<br>
+                    CURRENT BLOCK TIME: ${data.time}<br>
+                    CURRENT BLOCK HASH: ${data.hash}`
 
 
         $(".mypanel").html(text);
