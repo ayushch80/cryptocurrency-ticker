@@ -18,14 +18,18 @@
         var highfee = data.high_gas_price
         var mediumfee = data.medium_gas_price
         var lowfee = data.low_gas_price
-        var high_fee = highfee / 1000000000000000000
+        var high_fee = highfee / 1000000000
+        var medium_fee = mediumfee / 1000000000
+        var low_fee = lowfee / 1000000000
         var text = `CURRENT BLOCK HEIGHT: ${data.height}<br>
                     CURRENT FOUND BLOCK TIME: ${data.time}<br>
                     CURRENT BLOCK HASH: 0x${data.hash}<br>
                     PREVIOUS BLOCK HASH: 0x${data.previous_hash}<br>
                     TOTAL UNCONFIRMED TRANSACTIONS: ${data.unconfirmed_count}<br>
                     CURRENT FOUND BLOCK TIME: ${data.time}<br>
-                    HIGH GAS FEE: ${high_fee} ETH`
+                    HIGH GAS FEE: ${high_fee} GWEI<br>
+                    MEDIUM GAS FEE: ${medium_fee} GWEI<br>
+                    LOW GAS FEE: ${low_fee} GWEI`
 
 
         $(".mypanel").html(text);
