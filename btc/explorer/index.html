@@ -26,7 +26,7 @@
     redirect: 'follow',
     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     body: JSON.stringify(data) // body data type must match "Content-Type" header
-}).then(data) {
+}).then(data => {
         let unix_timestamp = data.time
         var date = new Date(unix_timestamp * 1000);
         var hours = date.getHours();
@@ -39,7 +39,7 @@
 
 
         $(".mypanel").html(text);
-    };
+    });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     
