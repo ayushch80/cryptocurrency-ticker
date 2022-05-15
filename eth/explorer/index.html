@@ -9,8 +9,18 @@
   </head>
   <body>
 
-
-    <div class="mypanel"></div>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand">ETH EXPLORER</a>
+        <form class="d-flex" id="form">
+          <input class="form-control me-2" type="text" placeholder="SEARCH FOR VALID BLOCK NO." aria-label="Search" id="searchTxt"/>
+          <button class="btn btn-outline-success" type="submit" value="Get Data" onClick="window.location.reload();">Search</button>
+        </form>
+      </div>
+    </nav>
+    <div class="eth"><p>WAITING FOR RESPONSE FROM HOST ...</div>
+    <div class="search-data"></div>
+ 
 
 
     <script>
@@ -40,12 +50,39 @@
                     LOW GAS FEE: ${low_fee} GWEI<br>
                     HIGH PRIORITY FEE: ${high_priorityfee} GWEI<br>
                     MEDIUM PRIORITY FEE: ${medium_priorityfee} GWEI<br>
-                    LOW PRIORITY FEE: ${low_priorityfee} GWEI`
+                    LOW PRIORITY FEE: ${low_priorityfee} GWEI<br><br><br>`
 
 
-        $(".mypanel").html(text);
+        $(".eth").html(text);
     });
     </script>
+    <script type="text/javascript">
+      var myForm = document.getElementById("form");
+      var text = myForm.elements.namedItem("searchTxt").value;
+      var url = "https://api.blockcypher.com/v1/eth/main/blocks/" + text;
+      $.getJSON(url, function(data) {
+        var nonce_num = data.nonce
+        var hexString = nonce_num.toString(16);
+
+        var block_t = data.total
+        var block_total = block_t / 1000000000000000000
+
+        var block_f = data.fees
+        var block_fees = block_f / 1000000000000000000
+        var text = `<h1>DATA FOR BLOCK NO. ${data.height}</h1>
+                    HEIGHT: ${data.height}<br>
+                    BLOCK HASH: 0x${data.hash}<br>
+                    PREVIOUS BLOCK HASH: 0x${data.prev_block}<br>
+                    NO. OF TX: ${data.n_tx}<br>
+                    BLOCK TOTAL AMOUNT: ${block_total} ETH<br>
+                    BLOCK FEE: ${block_fees} ETH<br>
+                    MINED BY: 0x${data.coinbase_addr}<br>
+                    BLOCK SIZE: ${data.size} bytes<br>
+                    NONCE: 0x${hexString}`
+        $(".search-data").html(text);
+      });
+
+   </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     
   </body>
