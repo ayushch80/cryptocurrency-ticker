@@ -41,6 +41,7 @@
     <div class="eth"><p>WAITING FOR RESPONSE FROM HOST ...</p></div>
     <div class="search-data-block"></div>
     <div class="search-data-address"></div>
+    <div class="search-data-hash"></div>
     <script>
       $.getJSON('https://api.blockcypher.com/v1/eth/main', function(data) {
 
@@ -116,6 +117,14 @@
                     TOTAL SENT: ${total_sent} ETH<br>
                     NO. OF TX. : ${data.n_tx}`
         $(".search-data-address").html(text);
+       });
+    </script>
+    <script>
+      var url = "https://api.blockcypher.com/v1/eth/main/txs/" + text;
+      $.getJSON(url, function(data) {
+        var text = `<h1>DATA FOR TX HASH</h1>
+                    TX HASH: ${data.hash}<br>`
+        $(".search-data-hash").html(text);
        });
     </script>
     <script
