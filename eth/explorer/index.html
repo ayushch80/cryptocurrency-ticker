@@ -77,7 +77,7 @@
     <script type="text/javascript">
       var myForm = document.getElementById("form");
       var text = myForm.elements.namedItem("searchTxt").value;
-      if (isInteger(text)) {
+      if (Number.isInteger(text)) {
         var url = "https://api.blockcypher.com/v1/eth/main/blocks/" + text;
         $.getJSON(url, function(data) {
           var nonce_num = data.nonce
