@@ -19,7 +19,8 @@
       </div>
     </nav>
     <div class="eth"><p>WAITING FOR RESPONSE FROM HOST ...</div>
-    <div class="search-data"></div>
+    <div class="search-data-block"></div>
+    <div class="search-data-address"></div>
  
 
 
@@ -79,7 +80,27 @@
                     MINED BY: 0x${data.coinbase_addr}<br>
                     BLOCK SIZE: ${data.size} bytes<br>
                     NONCE: 0x${hexString}`
-        $(".search-data").html(text);
+        $(".search-data-block").html(text);
+      });
+
+   </script>
+    
+   <script type="text/javascript">
+      var myForm = document.getElementById("form");
+      var text = myForm.elements.namedItem("searchTxt").value;
+      var url = "https://api.blockcypher.com/v1/eth/main/addrs/" + text;
+      $.getJSON(url, function(data) {
+        var nonce_num = data.nonce
+        var hexString = nonce_num.toString(16);
+
+        var block_t = data.total
+        var block_total = block_t / 1000000000000000000
+
+        var block_f = data.fees
+        var block_fees = block_f / 1000000000000000000
+        var text = `<h1>DATA FOR ADDRESS</h1>
+                    ADDRESS: ${data.address}<br>`
+        $(".search-data-address").html(text);
       });
 
    </script>
