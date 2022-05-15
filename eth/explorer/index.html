@@ -105,6 +105,8 @@
       $.getJSON(url, function(data) {
         var total_r = data.total_received
         var total_s = data.total_sent
+        var total_b = data.balance
+        var total_balance = total_b / 1000000000000000000
         var total_received = total_r / 1000000000000000000
         var total_sent = total_s / 1000000000000000000
         var text = `<h1>DATA FOR ADDRESS</h1>
