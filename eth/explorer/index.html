@@ -77,7 +77,6 @@
     <script type="text/javascript">
       var myForm = document.getElementById("form");
       var text = myForm.elements.namedItem("searchTxt").value;
-      if (typeof text === 'number') {
         var url = "https://api.blockcypher.com/v1/eth/main/blocks/" + text;
         $.getJSON(url, function(data) {
           var nonce_num = data.nonce
@@ -100,15 +99,15 @@
                       NONCE: 0x${hexString}`
           $(".search-data-block").html(text);
         });
-      } else {
-        var url = "https://api.blockcypher.com/v1/eth/main/addrs/" + text;
-        $.getJSON(url, function(data) {
-          var text = `<h1>DATA FOR ADDRESS</h1>
-                      ADDRESS: ${data.address}<br>
-                      TOTAL BALANCE: ${data.balance}`
-          $(".search-data-address").html(text);
-        });
-      }
+    </script>
+    <script>
+      var url = "https://api.blockcypher.com/v1/eth/main/addrs/" + text;
+      $.getJSON(url, function(data) {
+        var text = `<h1>DATA FOR ADDRESS</h1>
+                    ADDRESS: ${data.address}<br>
+                    TOTAL BALANCE: ${data.balance}`
+        $(".search-data-address").html(text);
+       });
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
