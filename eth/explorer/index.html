@@ -3,16 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
     <title>ETH EXPLORER</title>
   </head>
   <body>
@@ -20,21 +12,8 @@
       <div class="container-fluid">
         <a class="navbar-brand">ETH EXPLORER</a>
         <form class="d-flex" id="form">
-          <input
-            class="form-control me-2"
-            type="text"
-            placeholder="SEARCH HERE"
-            aria-label="Search"
-            id="searchTxt"
-          />
-          <button
-            class="btn btn-outline-success"
-            type="submit"
-            value="Get Data"
-            onClick="window.location.reload();"
-          >
-            Search
-          </button>
+          <input class="form-control me-2" type="text" placeholder="SEARCH HERE" aria-label="Search" id="searchTxt"/>
+          <button class="btn btn-outline-success" type="submit" value="Get Data" onClick="window.location.reload();">Search</button>
         </form>
       </div>
     </nav>
@@ -42,106 +21,11 @@
     <div class="search-data-block"></div>
     <div class="search-data-address"></div>
     <div class="search-data-hash"></div>
-    <script>
-      $.getJSON('https://api.blockcypher.com/v1/eth/main', function(data) {
-
-          var highfee = data.high_gas_price
-          var mediumfee = data.medium_gas_price
-          var lowfee = data.low_gas_price
-          var high_fee = highfee / 1000000000
-          var medium_fee = mediumfee / 1000000000
-          var low_fee = lowfee / 1000000000
-
-          var highpriorityfee = data.high_priority_fee
-          var mediumpriorityfee = data.medium_priority_fee
-          var lowpriorityfee = data.low_priority_fee
-          var high_priorityfee = highpriorityfee / 1000000000
-          var medium_priorityfee = mediumpriorityfee / 1000000000
-          var low_priorityfee = lowpriorityfee / 1000000000
-
-          var text = `CURRENT BLOCK HEIGHT: ${data.height}<br>
-                      CURRENT FOUND BLOCK TIME: ${data.time}<br>
-                      CURRENT BLOCK HASH: 0x${data.hash}<br>
-                      PREVIOUS BLOCK HASH (CURRENTLY DISPLAYING INCORRECT): 0x${data.previous_hash}<br>
-                      TOTAL UNCONFIRMED TRANSACTIONS: ${data.unconfirmed_count}<br>
-                      HIGH GAS FEE: ${high_fee} GWEI<br>
-                      MEDIUM GAS FEE: ${medium_fee} GWEI<br>
-                      LOW GAS FEE: ${low_fee} GWEI<br>
-                      HIGH PRIORITY FEE: ${high_priorityfee} GWEI<br>
-                      MEDIUM PRIORITY FEE: ${medium_priorityfee} GWEI<br>
-                      LOW PRIORITY FEE: ${low_priorityfee} GWEI<br><br><br>`
-
-
-          $(".eth").html(text);
-      });
-    </script>
-    <script type="text/javascript">
-      var myForm = document.getElementById("form");
-      var text = myForm.elements.namedItem("searchTxt").value;
-        var url = "https://api.blockcypher.com/v1/eth/main/blocks/" + text;
-        $.getJSON(url, function(data) {
-          var nonce_num = data.nonce
-          var hexString = nonce_num.toString(16);
-
-          var block_t = data.total
-          var block_total = block_t / 1000000000000000000
-
-          var block_f = data.fees
-          var block_fees = block_f / 1000000000000000000
-          var text = `<h1>DATA FOR BLOCK NO. ${data.height}</h1>
-                      HEIGHT: ${data.height}<br>
-                      BLOCK HASH: 0x${data.hash}<br>
-                      PREVIOUS BLOCK HASH: 0x${data.prev_block}<br>
-                      NO. OF TX: ${data.n_tx}<br>
-                      BLOCK TOTAL AMOUNT: ${block_total} ETH<br>
-                      BLOCK FEE: ${block_fees} ETH<br>
-                      MINED BY: 0x${data.coinbase_addr}<br>
-                      BLOCK SIZE: ${data.size} bytes<br>
-                      NONCE: 0x${hexString}`
-          $(".search-data-block").html(text);
-        });
-    </script>
-    <script>
-      var myForm = document.getElementById("form");
-      var url = "https://api.blockcypher.com/v1/eth/main/addrs/" + text;
-      $.getJSON(url, function(data) {
-        var total_r = data.total_received
-        var total_s = data.total_sent
-        var total_b = data.balance
-        var total_balance = total_b / 1000000000000000000
-        var total_received = total_r / 1000000000000000000
-        var total_sent = total_s / 1000000000000000000
-        var text = `<h1>DATA FOR ADDRESS</h1>
-                    ADDRESS: ${data.address}<br>
-                    TOTAL BALANCE: ${total_balance} ETH<br>
-                    TOTAL RECEIVED: ${total_received} ETH<br>
-                    TOTAL SENT: ${total_sent} ETH<br>
-                    NO. OF TX. : ${data.n_tx}`
-        $(".search-data-address").html(text);
-       });
-    </script>
-    <script>
-      var myForm = document.getElementById("form");
-      var url = "https://api.blockcypher.com/v1/eth/main/txs/" + text;
-      $.getJSON(url, function(data) {
-        var tx_val = data.total
-        var tx_value = tx_val / 1000000000000000000
-        var text = `<h1>DATA FOR TX HASH</h1>
-                    TX HASH: 0x${data.hash}<br>
-                    BLOCK HASH: 0x${data.block_hash}<br>
-                    BLOCK NO. : ${data.block_height}<br>
-                    SENDER ADDRESS: 0x${data.addresses[0]}<br>
-                    RECEIVER ADDRESS: 0x${data.addresses[1]}<br>
-                    CONFIRMATIONS: ${data.confirmations}<br>
-                    CONFIRMATION TIME: ${data.confirmed}<br>
-                    TRANSACTION VALUE: ${tx_value}`
-        $(".search-data-hash").html(text);
-       });
-    </script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
+    <script src="eth_main.js" type="text/javascript"></script>
+    <script src="eth_block.js" type="text/javascript"></script>
+    <script src="eth_addrs.js" type="text/javascript"></script>
+    <script src="eth_txs.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"
     ></script>
   </body>
 </html>
