@@ -102,6 +102,7 @@
         });
     </script>
     <script>
+      var myForm = document.getElementById("form");
       var url = "https://api.blockcypher.com/v1/eth/main/addrs/" + text;
       $.getJSON(url, function(data) {
         var total_r = data.total_received
@@ -120,6 +121,7 @@
        });
     </script>
     <script>
+      var myForm = document.getElementById("form");
       var url = "https://api.blockcypher.com/v1/eth/main/txs/" + text;
       $.getJSON(url, function(data) {
         var tx_val = data.total
