@@ -1,2 +1,1 @@
 Header set Access-Control-Allow-Origin https://blockchain.info
-Header set Origin "https://crypto.ayushch80.me/"
