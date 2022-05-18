@@ -1,6 +1,7 @@
       var myForm = document.getElementById("form");
       var text = myForm.elements.namedItem("searchTxt").value;
-        var url = "https://api.blockcypher.com/v1/eth/main/blocks/" + text;
+      var n_text = str.replace('0x', '');
+        var url = "https://api.blockcypher.com/v1/eth/main/blocks/" + n_text;
         $.getJSON(url, function(data) {
           var nonce_num = data.nonce
           var hexString = nonce_num.toString(16);
