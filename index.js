@@ -107,3 +107,14 @@ wsavax.onmessage = (event) => {
   stockPriceElementavax.style.color = !lastPriceavax || lastPriceavax === priceavax ? 'black' : priceavax > lastPriceavax ? 'green' : 'red' ;
   lastPriceavax = priceavax;
 }
+
+let wsjmpt = new WebSocket('wss://stream.binance.com:9443/ws/jmptusdt@trade');
+let stockPriceElementjmpt = document.getElementById('stock-price-jmpt-usdt');
+let lastPricejmpt = null;
+wsjmpt.onmessage = (event) => {
+  let stockObject = JSON.parse(event.data);
+  let pricejmpt = parseFloat(stockObject.p).toFixed(3);
+  stockPriceElementjmpt.innerText = '$ '+ pricejmpt;
+  stockPriceElementjmpt.style.color = !lastPricejmpt || lastPricejmpt === pricejmpt ? 'black' : pricejmpt > lastPricejmpt ? 'green' : 'red' ;
+  lastPricejmpt = pricejmpt;
+}
