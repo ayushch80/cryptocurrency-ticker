@@ -18,13 +18,13 @@
       </div>
     </nav>
     <div class="eth"><p>WAITING FOR RESPONSE FROM HOST ...</p></div>
-    <div class="search-data-block"></div>
+    <div class="search-data-block"><div class="loader"></div></div>
     <div class="search-data-address"></div>
     <div class="search-data-hash"></div>
     <script type="text/javascript">
       var text = ["Loading", "Loading .", "Loading ...", "Loading", "Loading .", "Loading ..", "Loading ...", "Unable to Found Data from Block"];
       var counter = 0;
-      var elem = document.getElementById("search-data-block");
+      var elem = document.getElementById("loader");
       var inst = setInterval(change, 2000);
 
       function change() {
