@@ -40,7 +40,30 @@
         var number = block.number;
         var hash = block.hash;
         var time = block.timestamp;
-        $('tbody').append("<tr><td>" + number + "</td><td>" + hash + "</td><td>" + time + "</td></tr>");
+        
+        function timeSince(timeStamp) {
+          var now = new block.timestamp,
+          secondsPast = (now.getTime() - timeStamp) / 1000;
+          if (secondsPast < 60) {
+            return parseInt(secondsPast) + 's';
+          }
+          if (secondsPast < 3600) {
+            return parseInt(secondsPast / 60) + 'm';
+          }
+          if (secondsPast <= 86400) {
+            return parseInt(secondsPast / 3600) + 'h';
+          }
+          if (secondsPast > 86400) {
+            day = timeStamp.getDate();
+            month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ", "");
+            year = timeStamp.getFullYear() == now.getFullYear() ? "" : " " + timeStamp.getFullYear();
+            return day + " " + month + year;
+          }
+        }
+
+        const currentTimeStamp = new Date().getTime();
+        
+        $('tbody').append("<tr><td>" + number + "</td><td>" + hash + "</td><td>" + currentTimeStamp + "</td></tr>");
       }
     </script>
   </body>
