@@ -36,7 +36,7 @@
       var web3Provider = new Web3.providers.HttpProvider(provider);
       var web3 = new Web3(web3Provider);
       var latestBlock = web3.eth.blockNumber;
-      for (var i = 0; i < 10; i++) {
+      for (var i = 0; i < 50; i++) {
         var block = web3.eth.getBlock(latestBlock - i);
         var number = block.number;
         var hash = block.hash;
