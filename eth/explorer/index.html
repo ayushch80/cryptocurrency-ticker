@@ -62,7 +62,7 @@
 
         const currentTimeStamp = new Date().getTime();
         
-        $('tbody').append("<tr><td>" + number + "</td><td>" + hash + "</td><td>" + currentTimeStamp + "</td></tr>");
+        $('tbody').append("<tr><td>" + number + "</td><td>" + hash + "</td><td>" + timeSince(currentTimeStamp) + "</td></tr>");
       }
     </script>
   </body>
