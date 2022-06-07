@@ -133,9 +133,10 @@
 				date = daysOfMonth[month - 1];
 			}
 		}
-    ans += currYear.toString();
-    ans += "0" + month.toString();
+    		
+    		ans += "0" + month.toString();
 		ans += date.toString();
+		ans += currYear.toString();
 		
 		
 
@@ -149,7 +150,10 @@
 	// Function call to convert unix
 	// time to human read able
 	let ans = unixTimeToHumanReadable(T);
-	var timeStamp = moment(ans, "YYYYMMDD").fromNow();
+	      console.log(ans)
+	
+	var timeStamp = moment(ans, "MMDDYYYY").fromNow();
+	      console.log(timeStamp)
 
         $('tbody').append("<tr><td>" + number + "</td><td>" + hash + "</td><td>" + timeStamp + "</td></tr>");
       }
