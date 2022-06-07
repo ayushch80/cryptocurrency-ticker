@@ -43,7 +43,7 @@
         
         function timeSince(time) {
           var now = new Date(),
-          secondsPast = (now.getTime() - block.timestamp) / 1000;
+          secondsPast = (now.getTime() - time) / 1000;
           if (secondsPast < 60) {
             return parseInt(secondsPast) + 's';
           }
@@ -54,9 +54,9 @@
             return parseInt(secondsPast / 3600) + 'h';
           }
           if (secondsPast > 86400) {
-            day = timeStamp.getDate();
-            month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ", "");
-            year = timeStamp.getFullYear() == now.getFullYear() ? "" : " " + timeStamp.getFullYear();
+            day = time.getDate();
+            month = time.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ", "");
+            year = time.getFullYear() == now.getFullYear() ? "" : " " + timeStamp.getFullYear();
             return day + " " + month + year;
           }
         }
