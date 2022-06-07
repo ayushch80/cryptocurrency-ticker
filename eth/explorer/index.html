@@ -41,8 +41,9 @@
         var hash = block.hash;
         var time = block.timestamp;
         
-        function timeSince(timeStamp) {
-          secondsPast = (time - timeStamp) / 1000;
+        function timeSince(block.timestamp) {
+          var now = new Date(),
+          secondsPast = (now.getTime() - block.timestamp) / 1000;
           if (secondsPast < 60) {
             return parseInt(secondsPast) + 's';
           }
