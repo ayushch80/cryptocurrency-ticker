@@ -30,6 +30,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/web3.js"></script>
+    <script src="js/moment.js"></script>
     <script>
       var provider = 'https://rpc.ankr.com/eth';
       var web3Provider = new Web3.providers.HttpProvider(provider);
@@ -41,25 +42,126 @@
         var hash = block.hash;
         var time = block.timestamp;
         
-        function timeSince(time) {
-          var now = new Date(),
-          secondsPast = (now.getTime() - time) / 1000;
-          if (secondsPast < 60) {
-            return parseInt(secondsPast) + 's';
-          }
-          if (secondsPast < 3600) {
-            return parseInt(secondsPast / 60) + 'm';
-          }
-          if (secondsPast <= 86400) {
-            return parseInt(secondsPast / 3600) + 'h';
-          }
-          if (secondsPast > 86400) {
-            day = time.getDate();
-            month = time.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ", "");
-            year = time.getFullYear() == now.getFullYear() ? "" : " " + timeStamp.getFullYear();
-            return day + " " + month + year;
-          }
-        }
+        <script>
+	// Javascript program for the above approach
+	
+	// Unix time is in seconds and
+	// Humar Readable Format:
+	// DATE:MONTH:YEAR:HOUR:MINUTES:SECONDS,
+	// Start of unix time:01 Jan 1970, 00:00:00
+	
+	// Function to convert unix time to
+	// Human readable format
+	function unixTimeToHumanReadable(seconds)
+	{
+
+		let ans = "";
+		let daysOfMonth = [ 31, 28, 31, 30, 31, 30,
+							31, 31, 30, 31, 30, 31 ];
+
+		let currYear, daysTillNow, extraTime,
+			extraDays, index, date, month, hours,
+			minutes, secondss, flag = 0;
+          
+		daysTillNow = parseInt(seconds / (24 * 60 * 60), 10);
+		extraTime = seconds % (24 * 60 * 60);
+		currYear = 1970;
+		while (daysTillNow >= 365)
+		{
+			if (currYear % 400 == 0 ||
+			(currYear % 4 == 0 &&
+				currYear % 100 != 0))
+			{
+				daysTillNow -= 366;
+			}
+			else
+			{
+				daysTillNow -= 365;
+			}
+			currYear += 1;
+		}
+		extraDays = daysTillNow + 1;
+
+		if (currYear % 400 == 0 ||
+		(currYear % 4 == 0 &&
+			currYear % 100 != 0))
+			flag = 1;
+
+		// Calculating MONTH and DATE
+		month = 0; index = 0;
+		if (flag == 1)
+		{
+			while (true)
+			{
+				if (index == 1)
+				{
+					if (extraDays - 29 < 0)
+						break;
+
+					month += 1;
+					extraDays -= 29;
+				}
+				else
+				{
+					if (extraDays -
+						daysOfMonth[index] < 0)
+					{
+						break;
+					}
+					month += 1;
+					extraDays -= daysOfMonth[index];
+				}
+				index += 1;
+			}
+		}
+		else
+		{
+			while (true)
+			{
+				if (extraDays - daysOfMonth[index] < 0)
+				{
+					break;
+				}
+				month += 1;
+				extraDays -= daysOfMonth[index];
+				index += 1;
+			}
+		}
+
+		// Current Month
+		if (extraDays > 0)
+		{
+			month += 1;
+			date = extraDays;
+		}
+		else
+		{
+			if (month == 2 && flag == 1)
+				date = 29;
+			else
+			{
+				date = daysOfMonth[month - 1];
+			}
+		}
+    ans += currYear.toString();
+    ans += "0" + month.toString();
+		ans += date.toString();
+		
+		
+
+		// Return the time
+		return ans;
+	}
+	
+	// Given unix time
+	let T = block.timestamp;
+
+	// Function call to convert unix
+	// time to human read able
+	let ans = unixTimeToHumanReadable(T);
+	moment(ans, "YYYYMMDD").fromNow();
+</script>
+
 
         const currentTimeStamp = new Date().getTime();
         
