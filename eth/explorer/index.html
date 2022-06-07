@@ -149,12 +149,9 @@
 	// Function call to convert unix
 	// time to human read able
 	let ans = unixTimeToHumanReadable(T);
-	moment(ans, "YYYYMMDD").fromNow();
+	var timeStamp = moment(ans, "YYYYMMDD").fromNow();
 
-
-        const currentTimeStamp = new Date().getTime();
-        
-        $('tbody').append("<tr><td>" + number + "</td><td>" + hash + "</td><td>" + timeSince(currentTimeStamp) + "</td></tr>");
+        $('tbody').append("<tr><td>" + number + "</td><td>" + hash + "</td><td>" + timeStamp + "</td></tr>");
       }
     </script>
   </body>
