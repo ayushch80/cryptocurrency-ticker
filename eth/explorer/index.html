@@ -37,7 +37,7 @@
       var latestBlock = web3.eth.blockNumber;
       const curT = Date.now();
       const _curT = curT / 1000
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < 10; i++) {
         var block = web3.eth.getBlock(latestBlock - i);
         var number = block.number;
         var hash = block.hash;
