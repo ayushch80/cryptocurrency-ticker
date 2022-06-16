@@ -49,10 +49,12 @@
           var timeM = timeN_ / 60
           var timeM_ = Math.floor( timeM );
           var _timeM = timeM_ + " minutes ago"
-          $('tbody').append("<tr><td>" + number + "</td><td>" + hash + "</td><td>" + _timeM + "</td></tr>");
+          $('tbody').append("<tr><td>" + number + "</td><td><a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+" + hash + "</a></td><td>" + _timeM + "</td></tr><div class="collapse" id="collapseExample"><div class="card card-body">Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.</div></div>");
         } else {
         var _timeN = timeN_ + " seconds Ago"
-        $('tbody').append("<tr><td>" + number + "</td><td>" + hash + "</td><td>" + _timeN + "</td></tr>");
+        $('tbody').append("<tr><td>" + number + "</td><td><a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+" + hash + "</td><td>" + _timeN + "</td></tr>");
       }
       }
     </script>
