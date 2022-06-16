@@ -35,18 +35,25 @@
       var web3Provider = new Web3.providers.HttpProvider(provider);
       var web3 = new Web3(web3Provider);
       var latestBlock = web3.eth.blockNumber;
-      const curT = Date.now();
-      const _curT = curT / 1000
+      var curT = Date.now();
+      var _curT = curT / 1000
       for (var i = 0; i < 10; i++) {
         var block = web3.eth.getBlock(latestBlock - i);
         var number = block.number;
         var hash = block.hash;
         var time = block.timestamp;
         var timeN = _curT - time
-        const timeN_ = Math.ceil( timeN );
+        var timeN_ = Math.ceil( timeN );
+
+        if ( timeN_ > 60 ){
+          var timeM = timeN_ / 60
+          var timeM_ = Math.floor( timeM );
+          var _timeM = timeM_ + " minutes ago"
+          $('tbody').append("<tr><td>" + number + "</td><td>" + hash + "</td><td>" + _timeM + "</td></tr>");
+        } else {
         var _timeN = timeN_ + " seconds Ago"
-        console.log(time);
         $('tbody').append("<tr><td>" + number + "</td><td>" + hash + "</td><td>" + _timeN + "</td></tr>");
+      }
       }
     </script>
   </body>
